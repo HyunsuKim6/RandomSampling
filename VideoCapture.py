@@ -1,7 +1,11 @@
+"""
+Created on Sat Aug 31, 2019
+@author: HyunsuKim6(Github), hyunsukim@kaist.ac.kr
+"""
+
 import cv2
 import os
 
-# Playing video from file:
 cap = cv2.VideoCapture()
 
 try:
@@ -13,17 +17,15 @@ except OSError:
 currentFrame = 0
 
 while(True):
-    # Capture frame-by-frame
+
     ret, frame = cap.read("")
 
     if not ret: break
 
-    # Saves image of the current frame in jpg file
     name = './data/frame' + str(currentFrame) + '.jpg'
     print ('Creating...' + name)
     cv2.imwrite(name, frame)
 
-    # To stop duplicate images
     currentFrame += 1
 
 dirname = r""
